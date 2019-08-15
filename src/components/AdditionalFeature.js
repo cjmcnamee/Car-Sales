@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState, useReducer } from 'react';
 
 const AdditionalFeature = props => {
   return (
     <li>
-      {/* Add an onClick that will let you add a feature to your car */}
-      <button className="button">Add</button>
+      <button onClick={(e) => {
+        e.stopPropagation()
+        props.buyItem(props.feature)
+      }} className="button">Add</button>
       {props.feature.name} (+{props.feature.price})
     </li>
   );
